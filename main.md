@@ -18,7 +18,8 @@
 
 本記事では以下のフローチャートに基づき説明します。
 
-![flow](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/3939532d-9842-9fbf-8331-b1c231240c1a.png)
+<!-- 閉凸な例にするため開区間ではない -->
+![flowchart](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/4d167944-3e8d-2fe7-6e8a-c6807717102f.png)
 
 ## 定義
 
@@ -59,7 +60,7 @@ $$
 
 関数 $f$ が $\mathrm{dom} ~ f$ で連続であることは、任意の $\overline{x} \in \mathrm{dom} ~ f$ において $f$ が連続であることと同値です。
 
-ある $\overline{x} \in \mathrm{dom} ~ f$において$f$が連続であることは、$\overline{x}$に収束する任意の点列$\lbrace x_k \rbrace \subseteq \mathrm{dom} ~ f$に対し、$\lbrace f(x_k) \rbrace$ が $f(\overline{x})$に収束すること、すなわち、
+ある $\overline{x} \in \mathrm{dom} ~ f$ において $f$ が連続であることは、$\overline{x}$ に収束する任意の点列 $\lbrace x_k \rbrace \subseteq \mathrm{dom} ~ f$ に対し、$\lbrace f(x_k) \rbrace$ が $f(\overline{x})$ に収束すること、すなわち、
 
 $$
 \lim_{k \to \infty} x_k = \overline{x} \implies \lim_{k \to \infty} f(x_k) = f(\overline{x})
@@ -89,13 +90,13 @@ $ax+b, x^2, \| x \|, e^x$ などの関数が該当します。ただし、$1/x$ 
 
 任意の $\overline{x} \in \mathbb{R}^n$ に対して、$f$ が $\overline{x}$ で連続だと示します。
 
-ある $M$ が存在して、$\|\| x - \overline{x} \|\| \leq 1$ を満たす任意の $x \in \mathbb{R}^n$ に対し、$\lvert f(x) - f(\overline{x}) \rvert \leq M$ と出来ます。 $f(x) \in \mathbb{R}$ が $\pm \infty$ でなく、有限値を取る為です。
+ある $M$ が存在して、$\lVert x - \overline{x} \rVert \leq 1$ を満たす任意の $x \in \mathbb{R}^n$ に対し、$\lvert f(x) - f(\overline{x}) \rvert \leq M$ と出来ます。 $f(x) \in \mathbb{R}$ が $\pm \infty$ でなく、有限値を取る為です。
 
-任意の $0 < r \leq 1$ に対し、$\|\| x-\overline{x} \|\| = r$ を満たす $x \in \mathrm{dom} ~ f = \mathbb{R}^n$ が存在します。 $\overline{y}_1, \overline{y}_2 \in \mathrm{dom} ~ f$ を
+任意の $0 < r \leq 1$ に対し、$\lVert x-\overline{x} \rVert = r$ を満たす $x \in \mathrm{dom} ~ f = \mathbb{R}^n$ が存在します。 $\overline{y}_1, \overline{y}_2 \in \mathrm{dom} ~ f$ を
 $$
 \overline{y}_1 := \overline{x} + \frac{x-\overline{x}}{r}, \quad \overline{y}_2 := \overline{x} - \frac{x-\overline{x}}{r}
 $$
-と定義します。$\|\| \overline{y}_1 - \overline{x} \|\| = \|\| \overline{y}_2 - \overline{x} \|\| = 1$ より、$\lvert f(\overline{y}_1) - f(\overline{x}) \rvert \leq M,$ $\lvert f(\overline{y}_2) - f(\overline{x}) \rvert \leq M$が成立します。
+と定義します。$\lVert \overline{y}_1 - \overline{x} \rVert = \lVert \overline{y}_2 - \overline{x} \rVert = 1$ より、$\lvert f(\overline{y}_1) - f(\overline{x}) \rvert \leq M,$ $\lvert f(\overline{y}_2) - f(\overline{x}) \rvert \leq M$ が成立します。
 
 ![why_interval_3.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/ab9bb04f-2ba8-0428-d87f-c3eb251e3127.png)
 
@@ -111,7 +112,7 @@ $$
 \end{align*}
 $$
 
-が成立します。不等式はそれぞれ適切に変形すると$f$ が凸である定義式より導かれます。$\overline{y}_1,$ $\overline{y}_2,$ $M$ の定義より、
+が成立します。不等式はそれぞれ適切に変形すると $f$ が凸である定義式より導かれます。$\overline{y}_1,$ $\overline{y}_2,$ $M$ の定義より、
 
 $$
 \begin{align*}
@@ -123,15 +124,15 @@ $$
 
 が導けます。直感的には $M$ が半径1の範囲内における最大の傾きの絶対値を意味し、凸性から上記の値は $M$ 以下になるということです。
 
-$r$ は任意だったので、$r \to 0$とすれば、$f(x) \to f(\overline{x})$ が得られ、$f$ は $\overline{x}$ で連続であることが示されました。
+$r$ は任意だったので、$r \to 0$ とすれば、$f(x) \to f(\overline{x})$ が得られ、$f$ は $\overline{x}$ で連続だと示されます。
 
-よって、$f$ は連続であり、$\mathrm{dom} ~ f$ が実数全域となる凸関数は連続であることが示されました。
+よって、$f$ は連続であり、$\mathrm{dom} ~ f$ が実数全域となる凸関数は連続です。
 
 </details>
 
-## Section 2: 閉凸関数でない場合、連続性は様々取り得る
+## Section 2: 閉凸関数でない場合、連続性は様々あり得る
 
-続いて、$\mathrm{dom} ~ f \neq \mathbb{R}^n$である場合について考えます。つまり、$\pm \infty$ に値を取ることがある場合です。
+続いて、$\mathrm{dom} ~ f \neq \mathbb{R}^n$ である場合について考えます。つまり、$\pm \infty$ に値を取ることがある場合です。
 
 ### 閉凸の定義
 
@@ -149,7 +150,7 @@ $$
 | :---: | :---: |
 | ![closed_interval_closed_convex](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/122d0d6e-fbaa-ba51-3ba0-e9379121f381.png) | ![closed_interval_inf.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/f8ec86df-b250-be82-319b-fd8a01bbf4dc.png)<br> |
 
-右の例では、$\mathrm{dom} ~ f$は$\lbrace x \in \mathbb{R} \mid x > 0 \rbrace$と**開区間**ですが、閉凸関数です。
+右の例では、$\mathrm{dom} ~ f$ は $\lbrace x \in \mathbb{R} \mid x > 0 \rbrace$ と**開区間**ですが、閉凸関数です。
 
 また、以下は閉凸でない例です。
 
@@ -168,12 +169,15 @@ $$
 この関数が凸関数であることは、凸関数の定義
 
 $$
-\alpha x + (1 - \alpha) y \in Q \quad (\forall x, y \in Q, ~ \forall \alpha \in [0, 1])
+\begin{gather*}
+f(\alpha x + (1 - \alpha) y) \leq \alpha f(x) + (1 - \alpha) f(y) \\
+(\forall x, y \in \mathrm{dom} ~ f,~\forall \alpha \in [0, 1])
+\end{gather*}
 $$
 
-において、$x$または$y$が区間の左端である時のみ非自明ですが、確かに定義を満たしています。よって、閉凸でないなら、容易に不連続な例は作れます。
+において、$x$ または $y$ が区間の左端である時のみ非自明ですが、確かに定義を満たしています。よって、閉凸でないなら、容易に不連続な例は作れます。
 
-余談として、以下の例は不連続ですが、そもそも非凸です。不連続点が$\mathrm{dom} ~ f$の境界になければならないのは、凸性の担保の為と言えます。
+余談として、以下の例は不連続ですが、そもそも非凸です。不連続点が $\mathrm{dom} ~ f$ の境界になければならないのは、凸性の担保の為と言えます。
 
 ![closed_interval_non_convex](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/dd1f9e47-2179-3637-6790-a2f0158b6667.png)
 
@@ -203,13 +207,13 @@ $$
 \end{align*}
 $$
 
-と定義します。$\langle \cdot, \cdot \rangle$ は内積、$\|\| \cdot \|\|_2$ はユークリッドノルムです。これが凸関数であることの証明は比較的容易なので省略します。詳細は教科書を参照して下さい。
+と定義します。$\langle \cdot, \cdot \rangle$ は内積、$\lVert \cdot \rVert_2$ はユークリッドノルムです。これが凸関数であることの証明は比較的容易なので省略します。詳細は教科書を参照して下さい。
 
 $\psi(g,\gamma)$ の具体的な値は以下のようになります。
 
 $$
 \psi(g,\gamma) = \begin{cases}
-0 & g=0, \gamma=0\\
+0 & g=0,~\gamma=0\\
 \frac{\| g \|_2^2}{2\gamma} & \gamma > 0\\
 \infty & \text{otherwise}
 \end{cases}
@@ -217,13 +221,27 @@ $$
 
 <details><summary>具体的な値の計算（ここを押して読んで下さい）</summary>
 
-$\psi(g,\gamma)$の挙動を$\gamma$で場合分けして調べます。
+$\psi(g,\gamma)$ の挙動を $\gamma$ で場合分けして調べます。
 
-* $\gamma<0$の場合
+* $g=0,~\gamma=0$ の場合
 
-$g=0$の場合は明らかに$\psi(g,\gamma)=\infty$です。
+$\phi(y,0,0) = 0$ より $\psi(0,0) = 0$ です。
 
-$g\neq 0$の場合も、$y_\alpha = \alpha g$ とすると、
+* $\gamma>0$ の場合
+
+$$
+\begin{align*}
+\psi(g,\gamma) &= \sup_{y \in \mathbb{R}^n} \left( \langle g, y \rangle - \frac{\gamma}{2} \| y \|_2^2 \right) \\
+&= \sup_{y \in \mathbb{R}^n} \left( -\frac{\gamma}{2} \left\| y - \frac{g}{\gamma} \right\|_2^2 + \frac{\| g \|_2^2}{2\gamma} \right) \\
+&= \frac{\| g \|_2^2}{2\gamma}
+\end{align*}
+$$
+
+です。
+
+* $g \neq 0,~\gamma=0$ または $\gamma<0$ の場合
+
+$g\neq 0,~\gamma \leq 0$ の場合、$y_\alpha = \alpha g$ とすると、
 
 $$
 \begin{align*}
@@ -233,41 +251,11 @@ $$
 \end{align*}
 $$
 
-より、$\psi(g,\gamma)=\infty$です。
+より、$\psi(g,\gamma)=\infty$ です。
 
-以上より、$\psi(g,\gamma)=\infty$です。
+$g=0,~\gamma < 0$ の場合、$\phi(y,0,\gamma) = -\frac{\gamma}{2} \| y \|_2^2$ より、$\psi(0,\gamma)=\infty$ です。
 
-* $\gamma=0$の場合
-
-$$
-\phi(y,g,0) = \langle g, y \rangle = \begin{cases}
-0 & g = 0\\
-\infty & g \neq 0
-\end{cases}
-$$
-
-である為、
-
-$$
-\psi(g,0) = \begin{cases}
-0 & g = 0\\
-\infty & g \neq 0
-\end{cases}
-$$
-
-です。
-
-* $\gamma>0$の場合
-
-$$
-\begin{aligned}
-\psi(g,\gamma) &= \sup_{y \in \mathbb{R}^n} \left( \langle g, y \rangle - \frac{\gamma}{2} \| y \|_2^2 \right) \\
-&= \sup_{y \in \mathbb{R}^n} \left( -\frac{\gamma}{2} \left\| y - \frac{g}{\gamma} \right\|_2^2 + \frac{\| g \|_2^2}{2\gamma} \right) \\
-&= \frac{\| g \|_2^2}{2\gamma}
-\end{aligned}
-$$
-
-です。
+以上より、$\psi(g,\gamma)=\infty$ です。
 
 </details>
 
@@ -275,24 +263,16 @@ $$
 
 ![psi](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/76f15f8d-0f1f-d743-16a6-6ff384cb13fc.png)
 
-$\gamma$ を $0$ に近づけすぎると非常に見づらいグラフになってしまうので、$\gamma$ の下限を少しずつ変えて示しています。要は青点 $(g,\gamma)=(0,0)$ においてその値は $0$ ですが、その周辺では $\gamma$ が $0$ に近づくと $\infty$ へと発散していくということです。
+図では $\gamma$ の下限を少しずつ変えて示しています。このグラフは青点 $(g,\gamma)=(0,0)$ において $\phi(g,\gamma)=0$ ですが、$g \neq 0$ では $\gamma \to 0$ において $\phi(g,\gamma) \to \infty$ です。
 
-ここで、赤の点列は、
-
+ここで、赤の点列は、ある $\beta>0$ に対し、
 $$
-\psi(\sqrt{\gamma}g,\gamma) = \frac{1}{2} \|\| g \|\|_2^2
+\begin{cases}
+\displaystyle \lim_{k \to \infty} (g_k,\gamma_k)= (0,0) \\
+\displaystyle \lim_{k \to \infty} \psi(g_k,\gamma_k)= \beta
+\end{cases}
 $$
-
-であることを用いて、ある $\beta>0$ に対し、
-
-$$
-\begin{gather*}
-\lim_{k \to \infty} \psi(g_k,\gamma_k) = \beta\\
-\lim_{k \to \infty} (g_k,\gamma_k) = (0,0)
-\end{gather*}
-$$
-
-を満たす点列を示しています。これは明らかに $\psi$ が不連続であることを示しています。
+を満たす点列です。$\gamma > 0$ において $\psi(\sqrt{\gamma}g,\gamma) = \frac{1}{2} \lVert g \rVert_2^2$ であることを用いると作れます。これは明らかに $\psi$ が**不連続**だと示しています。
 
 さらに面白い点として、$\mathrm{dom} ~ \psi =$ $(\mathbb{R} \times \lbrace \gamma > 0 \rbrace) \cup \lbrace (0,0) \rbrace$ は**閉でも開でもない**ですが、$\psi$ は**閉凸関数**です。
 
@@ -308,9 +288,9 @@ $\lbrace \gamma > 0 \rbrace$ という開集合が出てくるのに、これが
 
 1変数の場合、閉凸関数 $f$ は $\mathrm{dom} ~ f$ で連続であることを示します。上記2変数の場合との違いに注目して下さい。
 
-つまり、以下が連続です。
+つまり、以下などが連続です。
 
-![closed_interval](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/265dac7d-f42c-aee4-1313-4a5d4ca3b223.png)
+![closed_interval_closed_convex](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/122d0d6e-fbaa-ba51-3ba0-e9379121f381.png)
 
 系として開区間で定義された凸関数の連続性が従います。なお、この事実はかなり簡単に示せますが、そのような証明は別の記事[^easyProof]などを参照して下さい。
 
@@ -324,7 +304,7 @@ $\lbrace \gamma > 0 \rbrace$ という開集合が出てくるのに、これが
 
 点列 $\lbrace x_k \rbrace \subseteq \mathrm{dom} ~ f$ が $\overline{x}$ に収束するとします。
 
-Appendixに示すように、$f$ が閉凸ならば下半連続です。つまり、以下は一般に成立します。
+Appendixに示すように、$f$ は閉凸ならば下半連続です。つまり、以下は一般に成立します。
 
 $$
 \liminf_{k \to \infty} f(x_k) \geq f(\overline{x})
@@ -336,7 +316,7 @@ $$
 $$
 であることを示せば、上極限と下極限が一致する[^supInf]為、その極限は $f(\overline{x})$ に一致し、$f$ が $\overline{x}$ で連続であることが示されます。
 
-非常に重要な事として、1変数、つまり、数直線上の凸関数のdomainは、**一つの区間の形以外にありえません**。また、$\mathrm{dom} ~ f \neq \emptyset$ であることを仮定しています。
+非常に重要な事として、1変数、つまり、数直線上の凸関数のdomainは、それが凸集合であるという性質上、**一つの区間の形以外にありえません**。また、$\mathrm{dom} ~ f \neq \emptyset$ であることを仮定しています。
 
 つまり、$x_k \to \overline{x}$ より、$k$ が十分大きい任意の $x_k$ は、高々2つの固定された $\overline{y}_1, \overline{y}_2\in \mathrm{dom} ~ f$ を用いて、
 
@@ -353,13 +333,13 @@ $$
 また、凸関数の定義より、
 
 $$
-\begin{align*}
-f(x_k) &\leq (1-\alpha_k) f(\overline{x}) + \alpha_k f(\overline{y}_1) \\
-f(x_k) &\leq (1-\alpha_k) f(\overline{x}) + \alpha_k f(\overline{y}_2)
-\end{align*}
+\begin{cases}
+f(x_k) \leq (1-\alpha_k) f(\overline{x}) + \alpha_k f(\overline{y}_1) \\
+f(x_k) \leq (1-\alpha_k) f(\overline{x}) + \alpha_k f(\overline{y}_2)
+\end{cases}
 $$
 
-が成立します。
+のいずれかが成立します。
 
 ここで、$x_k \to \overline{x}$ より、$\alpha_k \to 0$ が導かれます。そして、上記不等式で $\alpha_k \to 0$ とすると、
 $$
@@ -367,7 +347,7 @@ $$
 $$
 が導かれます。これは、$f$ が $\overline{x}$ で上半連続であることを示しています。
 
-よって、$f$ は $\overline{x}$ で連続であり、特に、$f$ は $\mathrm{dom} ~ f$ で連続であることが示されました。
+よって、$f$ は $\overline{x}$ で連続であり、特に、$f$ は $\mathrm{dom} ~ f$ で連続です。
 
 #### 2変数関数の場合、何故証明が回らないのか
 
@@ -381,17 +361,17 @@ $$
 
 ![why_interval_2](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/9e681295-3cad-6e42-cbd9-21e8beafc543.png)
 
-この点列では、先の証明で仮定した$\overline{y}_1, \overline{y}_2$に相当するものが無限個必要になってしまいます。これでは$x_k \to \overline{x}$としても、$\alpha_k \to 0$とは限らないため、先の証明が回らないのです。
+この点列では、先の証明で仮定した $\overline{y}_1,~\overline{y}_2$ に相当するものが無限個必要になってしまいます。これでは $x_k \to \overline{x}$ としても、$\alpha_k \to 0$ とは限らないため、先の証明が回らないのです。
 
 ここに1変数の場合と2変数以上の場合の決定的な違いがあると考えています。
 
 ## まとめ
 
-本記事では、凸関数における連続性について、以下のことを示しました。
+本記事では、凸関数の連続性について、以下のことを示しました。
 
-![flowchart](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/3939532d-9842-9fbf-8331-b1c231240c1a.png)
+![flowchart](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/4d167944-3e8d-2fe7-6e8a-c6807717102f.png)
 
-凸関数が必ずしも連続であるとは限らないことが伝わっていれば幸いです。
+理解の一助になれば幸いです。
 
 ## Appendix 閉凸関数ならば下半連続である
 
@@ -401,7 +381,7 @@ $$
 
 ### 下半連続の定義
 
-ある $\overline{x} \in \mathrm{dom} ~ f$において$f$が下半連続であることは、$\overline{x}$に収束する任意の点列$\lbrace x_k \rbrace \subseteq \mathrm{dom} ~ f$に対し、
+ある $\overline{x} \in \mathrm{dom} ~ f$ において $f$ が下半連続であることは、$\overline{x}$ に収束する任意の点列 $\lbrace x_k \rbrace \subseteq \mathrm{dom} ~ f$ に対し、
 
 $$
 \liminf_{k \to \infty} f(x_k) \geq f(\overline{x})
@@ -438,16 +418,16 @@ $$
 $$
 を言えれば良いです。
 
-$\overline{f} := \liminf_{k \to \infty} f(x_k)$ の値に基づく場合分けを行います。なお、$\overline{f}$は常に拡大実数$\mathbb{R} \cup \lbrace \pm\infty \rbrace$内に存在します。$\liminf$ になじみがない方は、文献[^supInf]も参考にして下さい。
+$\overline{f} := \liminf_{k \to \infty} f(x_k)$ の値に基づく場合分けを行います。なお、$\overline{f}$ は常に拡大実数 $\mathbb{R} \cup \lbrace \pm\infty \rbrace$ 内に存在します。$\liminf$ になじみがない方は、文献[^supInf]も参考にして下さい。
 
-* $\overline{f} \in \mathbb{R}$の場合
+* $\overline{f} \in \mathbb{R}$ の場合
 
 $\liminf$ の性質[^supInf]より、ある部分列 $\lbrace f(x_{k_j}) \rbrace$ が $\overline{f}$ に収束します。
-収束部分列の性質[^subArray]として、部分列の取り方に依らず、$x_{k_j} \to \overline{x}$です。以上より、$\lbrace (x_{k_j}, f(x_{k_j})) \rbrace$は$(\overline{x}, \overline{f})$に収束します。
+収束部分列の性質[^subArray]として、部分列の取り方に依らず、$x_{k_j} \to \overline{x}$ です。以上より、$\lbrace (x_{k_j}, f(x_{k_j})) \rbrace$ は $(\overline{x}, \overline{f})$ に収束します。
 
-ここで、閉凸関数の定義より$\mathrm{epi} ~ f$は閉集合である為、その内で定義される任意の点列は、その部分列が極限を持つならば、それは$\mathrm{epi} ~ f$内に存在します。
+ここで、閉凸関数の定義より $\mathrm{epi} ~ f$ は閉集合である為、その内で定義される任意の点列は、その部分列が極限を持つならば、それは $\mathrm{epi} ~ f$ 内に存在します。
 
-よって、$\lbrace (x_{k_j}, f(x_{k_j})) \rbrace$という点列は、$\overline{f} \in \mathbb{R}$を用いた$(\overline{x}, \overline{f})$という極限を持つため、それは$\mathrm{epi} ~ f$内に存在します。つまり、
+よって、$\lbrace (x_{k_j}, f(x_{k_j})) \rbrace$ という点列は、$\overline{f} \in \mathbb{R}$ を用いた $(\overline{x}, \overline{f})$ という極限を持つため、それは $\mathrm{epi} ~ f$ 内に存在します。つまり、
 $$
 (\overline{x}, \overline{f}) \in \mathrm{epi} ~ f
 \implies
@@ -455,17 +435,17 @@ $$
 $$
 が成り立ち、主張は成立します。
 
-* $\overline{f} = -\infty$の場合
+* $\overline{f} = -\infty$ の場合
 
-$\overline{x} \in \mathrm{dom} ~ f$であることから、$f(\overline{x}) > -\infty$です。また、$\overline{f} = \liminf_{k \to \infty} f(x_k) = -\infty$より、十分大きな$k$に対して、$f(x_k)$は十分小さな値を取り、特に、$f(x_k) \leq f(\overline{x})-1$が成り立ちます。これは、$\lbrace (x_k, f(\overline{x})-1) \rbrace \subseteq \mathrm{epi} ~ f$を意味します。
+$\overline{x} \in \mathrm{dom} ~ f$ であることから、$f(\overline{x}) > -\infty$ です。また、$\overline{f} = \liminf_{k \to \infty} f(x_k) = -\infty$ より、十分大きな $k$ に対して、$f(x_k)$ は十分小さな値を取り、特に、$f(x_k) \leq f(\overline{x})-1$ が成り立ちます。これは、$\lbrace (x_k, f(\overline{x})-1) \rbrace \subseteq \mathrm{epi} ~ f$ を意味します。
 
-しかし、この点列は、$f(\overline{x})-1$が$k$に依存しない単なる定数である為、$(\overline{x}, f(\overline{x})-1)$に収束してしまいます。
+しかし、この点列は、$f(\overline{x})-1$ が $k$ に依存しない単なる定数である為、$(\overline{x}, f(\overline{x})-1)$ に収束してしまいます。
 
-先程と同様の閉性に関する議論より、これは$(\overline{x}, f(\overline{x})-1) \in \mathrm{epi} ~ f$を導きます。しかし、これは$f(\overline{x}) \leq f(\overline{x})-1 \iff 0 \leq -1$を意味し、矛盾します。
+先程と同様の閉性に関する議論より、これは $(\overline{x}, f(\overline{x})-1) \in \mathrm{epi} ~ f$ を導きます。しかし、これは $f(\overline{x}) \leq f(\overline{x})-1 \iff 0 \leq -1$ を意味し、矛盾します。
 
 なので、そもそもの仮定が誤りであると分かります。
 
-* $\overline{f} = \infty$の場合
+* $\overline{f} = \infty$ の場合
 
 この場合、
 $$
@@ -477,9 +457,7 @@ $$
 $$
 \liminf_{k \to \infty} f(x_k) \geq f(\overline{x})
 $$
-が成り立ち、$f$は$\overline{x}$で下半連続であることが示されました。
-
-よって、$f$は下半連続であり、特に、閉凸関数ならば下半連続であることが示されました。
+が成り立ち、$f$ は $\overline{x}$ で下半連続です。
 
 ## 謝辞
 
