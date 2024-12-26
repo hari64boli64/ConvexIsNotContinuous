@@ -142,7 +142,7 @@ $r$ は任意だったので、$r \to 0$ とすれば、$f(x) \to f(\overline{x}
 \mathrm{epi} ~ f = \lbrace (x, t) \in \mathbb{R}^{n+1} \mid x \in \mathrm{dom} ~ f, ~ f(x) \leq t \rbrace
 ```
 
-<img width=100% src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/9cecdf2d-f16e-e9f2-53e7-f680aac157f4.png" alt="epi">
+<img width=100% src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/c551751d-3df4-46f9-1d15-4b67e2101075.png" alt="epi">
 
 連続性を議論する上で重要な性質が**閉凸**です。関数 $f$ が **閉凸** であることは、エピグラフが閉集合であることと同値です。（教科書 Definition 3.1.2）
 
@@ -415,59 +415,48 @@ f(x_k) \leq (1-\alpha_k) f(\overline{x}) + \alpha_k f(\overline{y}_2)
 
 $f$ が閉凸関数ならば下半連続であることを示します。
 
-$\overline{x}$ に収束する任意の点列 $\lbrace x_k \rbrace \subseteq \mathrm{dom} ~ f$ に対して、点列 $\lbrace (x_k, f(x_k)) \rbrace \subseteq \mathrm{epi} ~ f$ を考えます。
-
-これに対し、
+$\overline{x}$ に収束する任意の点列 $\lbrace x_k \rbrace \subseteq \mathrm{dom} ~ f$ に対し、点列 $\lbrace (x_k, f(x_k)) \rbrace \subseteq \mathrm{epi} ~ f$ を考えます。
 
 ```math
-\liminf_{k \to \infty} f(x_k) \geq f(\overline{x})
+\liminf_{k \to \infty} f(x_k) =: \overline{f} \geq f(\overline{x})
 ```
 
-を言えれば良いです。
+が言えれば良いです。
 
-$\overline{f} := \liminf_{k \to \infty} f(x_k)$ の値に基づく場合分けを行います。なお、$\overline{f}$ は常に拡大実数 $\mathbb{R} \cup \lbrace \pm\infty \rbrace$ 内に存在します。$\liminf$ になじみがない方は、文献[^supInf]も参考にして下さい。
+$\overline{f}$ の値に基づく場合分けを行います。なお、$\overline{f}$ は常に拡大実数 $\mathbb{R} \cup \lbrace \pm\infty \rbrace$ 内に存在します。$\liminf$ になじみがない方は、文献[^supInf]も参考にして下さい。
 
 * $\overline{f} \in \mathbb{R}$ の場合
 
-$\liminf$ の性質[^supInf]より、ある部分列 $\lbrace f(x_{k_j}) \rbrace$ が $\overline{f}$ に収束します。
-収束部分列の性質[^subArray]として、部分列の取り方に依らず、$x_{k_j} \to \overline{x}$ です。以上より、$\lbrace (x_{k_j}, f(x_{k_j})) \rbrace$ は $(\overline{x}, \overline{f})$ に収束します。
+$\liminf$ の性質[^supInf]より、ある部分列 $\lbrace f(x_{k_j}) \rbrace$ が $\overline{f} \in \mathbb{R}$ に収束します。$\lbrace x_k \rbrace$ は $\overline{x}$ に収束する点列でした。なので、収束部分列の性質[^subArray]として、$x_{k_j}$ も $\overline{x}$ に収束します。以上より、$\lbrace (x_{k_j}, f(x_{k_j})) \rbrace$ は $(\overline{x}, \overline{f})$ に収束します。
 
-ここで、閉凸関数の定義より $\mathrm{epi} ~ f$ は閉集合である為、その内で定義される任意の点列は、その部分列が極限を持つならば、それは $\mathrm{epi} ~ f$ 内に存在します。
+ここで、閉凸関数の定義より $\mathrm{epi} ~ f$ は閉集合である為、その内で定義される任意の点列は、極限を持つならばそれは $\mathrm{epi} ~ f$ 内に存在します。
 
-よって、$\lbrace (x_{k_j}, f(x_{k_j})) \rbrace$ という点列は、$\overline{f} \in \mathbb{R}$ を用いた $(\overline{x}, \overline{f})$ という極限を持つため、それは $\mathrm{epi} ~ f$ 内に存在します。つまり、
+よって、点列 $\lbrace (x_{k_j}, f(x_{k_j})) \rbrace$ は $(\overline{x}, \overline{f})$ という極限を持つため、それは $\mathrm{epi} ~ f$ 内に存在します。つまり、
 
 ```math
 (\overline{x}, \overline{f}) \in \mathrm{epi} ~ f
-\implies
-\liminf_{k \to \infty} f(x_k) = \overline{f} \geq f(\overline{x})
+\iff
+\overline{f} \geq f(\overline{x})
 ```
 
 が成り立ち、主張は成立します。
 
 * $\overline{f} = -\infty$ の場合
 
-$\overline{x} \in \mathrm{dom} ~ f$ であることから、$f(\overline{x}) > -\infty$ です。また、$\overline{f} = \liminf_{k \to \infty} f(x_k) = -\infty$ より、十分大きな $k$ に対して、$f(x_k)$ は十分小さな値を取り、特に、$f(x_k) \leq f(\overline{x})-1$ が成り立ちます。これは、$\lbrace (x_k, f(\overline{x})-1) \rbrace \subseteq \mathrm{epi} ~ f$ を意味します。
+条件より $\liminf_{k \to \infty} f(x_k) = -\infty$ です。$\overline{x} \in \mathrm{dom} ~ f$ なので $f(\overline{x})-1$ は固定された実数値です。よって、ある部分点列 $\lbrace x_{k_j} \rbrace$ が存在し、$f(x_{k_j}) \leq f(\overline{x})-1$ が成り立ちます。$\mathrm{epi} ~ f$ の定義より $\lbrace (x_{k_j}, f(\overline{x})-1) \rbrace \subseteq \mathrm{epi} ~ f$ で、収束先は $(\overline{x}, f(\overline{x})-1)$ です。
 
-しかし、この点列は、$f(\overline{x})-1$ が $k$ に依存しない単なる定数である為、$(\overline{x}, f(\overline{x})-1)$ に収束してしまいます。
+先程と同様に閉性よりこれは $(\overline{x}, f(\overline{x})-1) \in \mathrm{epi} ~ f$ を導きます。
 
-先程と同様の閉性に関する議論より、これは $(\overline{x}, f(\overline{x})-1) \in \mathrm{epi} ~ f$ を導きます。しかし、これは $f(\overline{x}) \leq f(\overline{x})-1 \iff 0 \leq -1$ を意味し、矛盾します。
-
-なので、そもそもの仮定が誤りであると分かります。
+しかし、これは $f(\overline{x}) \leq f(\overline{x})-1 \iff 0 \leq -1$ を意味し矛盾です。なので、そもそもの仮定が誤りだと分かります。
 
 * $\overline{f} = \infty$ の場合
 
-この場合、
-
-```math
-\liminf_{k \to \infty} f(x_k) = \infty \geq f(\overline{x})
-```
-
-は自明です。
+この場合、$\overline{f} = \infty \geq f(\overline{x})$ は自明です。
 
 以上より、場合分けは尽くされ、
 
 ```math
-\liminf_{k \to \infty} f(x_k) \geq f(\overline{x})
+\overline{f} = \liminf_{k \to \infty} f(x_k) \geq f(\overline{x})
 ```
 
 が成り立ち、$f$ は $\overline{x}$ で下半連続です。
