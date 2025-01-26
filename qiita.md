@@ -37,10 +37,10 @@
 
 (Wikipedia「[凸集合](https://ja.wikipedia.org/wiki/%E5%87%B8%E9%9B%86%E5%90%88)」より引用 / [CheCheDaWaff](https://commons.wikimedia.org/wiki/File:Convex_polygon_illustration1.svg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0&gt), via Wikimedia Commons)
 
-また、拡大実数に値を取る関数 $f: \mathbb{R} \to \mathbb{R} \cup \lbrace \pm\infty \rbrace$ の **domain** は次のように定義されます。
+また、拡大実数に値を取る関数 $f\colon \mathbb{R} \to \mathbb{R} \cup \lbrace \pm\infty \rbrace$ の **domain** は次のように定義されます。
 
 ```math
-\mathrm{dom} ~ f = \lbrace x \in \mathbb{R}^n \mid \lvert f(x) \rvert < \infty \rbrace
+\mathrm{dom} ~ f = \lbrace x \in \mathbb{R}^n \mathrel{\mid} \lvert f(x) \rvert < \infty \rbrace
 ```
 
 つまり、実数の範囲内に値を取る点の集合です。本記事および教科書では $\mathrm{dom} ~ f \neq \emptyset$ を仮定します。なお、真凸関数 (proper convex function)[^proper]は $\mathrm{dom} ~ f \neq \emptyset$ と $f(x) \neq -\infty$ が条件の為、代わりに真凸関数であることを仮定しても殆ど同じ議論になります。
@@ -70,7 +70,7 @@ f(\alpha x + (1 - \alpha) y) \leq \alpha f(x) + (1 - \alpha) f(y) \\
 
 本節では以下の命題を示します[^stackexchange]。
 
-**凸関数** $f: \mathbb{R}^n \to \mathbb{R}$ **は連続である。**
+**凸関数** $f\colon \mathbb{R}^n \to \mathbb{R}$ **は連続である。**
 
 言い換えると、次と等価です。
 
@@ -108,7 +108,7 @@ $ax+b, x^2, \| x \|, e^x$ などの関数が該当します。ただし、$1/x$ 
 \leq {} & \left(\frac{1}{r} f(x) - \frac{1+r}{r}f(\overline{x})\right)+ f(\overline{x})\\
 = {} & \frac{f(x) - f(\overline{x})}{r}\\
 = {} & \left(\frac{1}{r}f(x) - \frac{1-r}{r}f(\overline{x})\right) - f(\overline{x})\\
-\leq {} & + f\left(\overline{x} + \frac{x - \overline{x}}{r}\right) - f(\overline{x})\\
+\leq {} & + f\left(\overline{x} + \frac{x - \overline{x}}{r}\right) - f(\overline{x})
 \end{align*}
 ```
 
@@ -136,10 +136,10 @@ $r$ は任意だったので、$r \to 0$ とすれば、$f(x) \to f(\overline{x}
 
 ### 閉凸の定義
 
-まず、エピグラフを定義します。関数 $f: \mathbb{R}^n \to \mathbb{R}$ の **エピグラフ(epigraph)** は次のように定義されます。
+まず、エピグラフを定義します。関数 $f\colon \mathbb{R}^n \to \mathbb{R}$ の **エピグラフ(epigraph)** は次のように定義されます。
 
 ```math
-\mathrm{epi} ~ f = \lbrace (x, t) \in \mathbb{R}^{n+1} \mid x \in \mathrm{dom} ~ f, ~ f(x) \leq t \rbrace
+\mathrm{epi} ~ f = \lbrace (x, t) \in \mathbb{R}^{n+1} \mathrel{\mid} x \in \mathrm{dom} ~ f, ~ f(x) \leq t \rbrace
 ```
 
 <img width=100% src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/c551751d-3df4-46f9-1d15-4b67e2101075.png" alt="epi">
@@ -150,7 +150,7 @@ $r$ は任意だったので、$r \to 0$ とすれば、$f(x) \to f(\overline{x}
 | :---: | :---: |
 | ![closed_interval_closed_convex](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/122d0d6e-fbaa-ba51-3ba0-e9379121f381.png) | ![closed_interval_inf.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/f8ec86df-b250-be82-319b-fd8a01bbf4dc.png)<br> |
 
-右の例では、$\mathrm{dom} ~ f$ は $\lbrace x \in \mathbb{R} \mid x > 0 \rbrace$ と**開区間**ですが、閉凸関数です。
+右の例では、$\mathrm{dom} ~ f$ は $\lbrace x \in \mathbb{R} \mathrel{\mid} x > 0 \rbrace$ と**開区間**ですが、閉凸関数です。
 
 また、以下は閉凸でない例です。
 
@@ -162,7 +162,7 @@ $r$ は任意だったので、$r \to 0$ とすれば、$f(x) \to f(\overline{x}
 
 ### 連続でない例
 
-凸関数に閉凸という条件を課さない場合、連続な例（improper convex function[^improper]）や、**不連続な例**が容易に構築出来ます。先にも示した、以下は不連続な凸関数です。
+凸関数に閉凸という条件を課さない場合、連続な例（開区間上の凸関数）や、**不連続な例**が容易に構築出来ます。先にも示した、以下は不連続な凸関数です。
 
 <img width=100% src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/265dac7d-f42c-aee4-1313-4a5d4ca3b223.png" alt="closed_interval">
 
@@ -278,9 +278,18 @@ $g=0,~\gamma < 0$ の場合、$\phi(y,0,\gamma) = -\frac{\gamma}{2} \| y \|_2^2$
 
 さらに面白い点として、$\mathrm{dom} ~ \psi =$ $(\mathbb{R} \times \lbrace \gamma > 0 \rbrace) \cup \lbrace (0,0) \rbrace$ は**閉でも開でもない**ですが、$\psi$ は**閉凸関数**です。
 
-$\lbrace \gamma > 0 \rbrace$ という開集合が出てくるのに、これが閉凸なのは、少し非自明であると感じました。しかし、以下の例で $\mathrm{dom} ~ f$ は開区間なのに閉凸関数であることを踏まえると、理解しやすいと思います。
+$n=1$ で $\psi$ が閉であることを証明します。
 
-<img width=100% src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/905155/f8ec86df-b250-be82-319b-fd8a01bbf4dc.png" alt="closed_interval_inf.png">
+一般に、ある関数 $f$ が閉である、つまりエピグラフ $\lbrace (x,t) \mathrel{\mid} x \in \mathrm{dom} ~ f,~ f(x) \leq t \rbrace$ が閉集合であることは、任意の $c \in \mathbb{R}$ に対して、劣位集合(sublevel set) $\lbrace x \in \mathrm{dom} ~ f \mathrel{\mid} f(x) \leq c \rbrace$ が閉集合であることと[同値](https://ja.wikipedia.org/wiki/%E9%96%89%E5%87%B8%E5%87%BD%E6%95%B0)です。十分性は自明で、必要性も点列を用いた議論などで示せます。
+
+ここで、ベクトル $g$ の唯一の成分のことも $g$ と表記すると、
+
+```math
+\psi(g,\gamma) \leq c \iff \frac{1}{2c} g^2 \leq \gamma
+```
+
+であって、これは放物線の上側部分で閉集合です。
+よって、任意の劣位集合が閉集合であり、$\psi$ は閉、特に閉凸関数であることが示されました。
 
 この小節のまとめとして、以下のことを強調しておきます。
 
@@ -468,7 +477,7 @@ $\liminf$ の性質[^supInf]より、ある部分列 $\lbrace f(x_{k_j}) \rbrace
 
 [^Nesterov]: Nesterov, Yurii. [Lectures on convex optimization](https://link.springer.com/book/10.1007/978-3-319-91578-4). Vol. 137. Berlin: Springer, 2018.
 
-[^continuous]: MATHPEDIA. [位相空間論5：連続写像](https://old.math.jp/wiki/%E4%BD%8D%E7%9B%B8%E7%A9%BA%E9%96%93%E8%AB%965%EF%BC%9A%E9%80%A3%E7%B6%9A%E5%86%99%E5%83%8F#.E5.91.BD.E9.A1.8C_5.18_.28.E7.82.B9.E5.88.97.E3.82.92.E7.94.A8.E3.81.84.E3.81.9F.E7.82.B9.E3.81.AB.E3.81.8A.E3.81.91.E3.82.8B.E9.80.A3.E7.B6.9A.E6.80.A7.E3.81.AE.E7.89.B9.E5.BE.B4.E3.81.A5.E3.81.91.29) (命題 5.18). 2021.
+[^continuous]: MATHPEDIA. [位相空間論5:連続写像](https://old.math.jp/wiki/%E4%BD%8D%E7%9B%B8%E7%A9%BA%E9%96%93%E8%AB%965%EF%BC%9A%E9%80%A3%E7%B6%9A%E5%86%99%E5%83%8F#.E5.91.BD.E9.A1.8C_5.18_.28.E7.82.B9.E5.88.97.E3.82.92.E7.94.A8.E3.81.84.E3.81.9F.E7.82.B9.E3.81.AB.E3.81.8A.E3.81.91.E3.82.8B.E9.80.A3.E7.B6.9A.E6.80.A7.E3.81.AE.E7.89.B9.E5.BE.B4.E3.81.A5.E3.81.91.29) (命題 5.18). 2021.
 
 [^stackexchange]: Misha Lavrov. [Is a convex function always continuous?](https://math.stackexchange.com/questions/2961783/is-a-convex-function-always-continuous). Stack Exchange, 2018.
 
@@ -477,8 +486,6 @@ $\liminf$ の性質[^supInf]より、ある部分列 $\lbrace f(x_{k_j}) \rbrace
 [^supInf]: 数学の景色. [上極限,下極限(limsup,liminf)の定義と例と性質2つ](https://mathlandscape.com/limsup-liminf/#toc6). 2022.
 
 [^proper]: Wikipedia. [真凸関数](https://ja.wikipedia.org/wiki/%E7%9C%9F%E5%87%B8%E5%87%BD%E6%95%B0). 2022.
-
-[^improper]: dragonxlwang. [Improper convex function](https://math.stackexchange.com/questions/1105842/improper-convex-function). Stack Exchange, 2015.
 
 [^closedConvex]: Wikipedia. [閉凸函数](https://ja.wikipedia.org/wiki/%E9%96%89%E5%87%B8%E5%87%BD%E6%95%B0). 2016.
 
