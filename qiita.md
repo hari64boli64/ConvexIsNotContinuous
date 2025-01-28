@@ -43,7 +43,9 @@
 \mathrm{dom} ~ f = \lbrace x \in \mathbb{R}^n \mathrel{\mid} \lvert f(x) \rvert < \infty \rbrace
 ```
 
-つまり、実数の範囲内に値を取る点の集合です。本記事および教科書では $\mathrm{dom} ~ f \neq \emptyset$ を仮定します。なお、真凸関数 (proper convex function)[^proper]は $\mathrm{dom} ~ f \neq \emptyset$ と $f(x) \neq -\infty$ が条件の為、代わりに真凸関数であることを仮定しても殆ど同じ議論になります。
+つまり、実数の範囲内に値を取る点の集合です ([effective domain](https://en.wikipedia.org/wiki/Effective_domain)として $-\infty$ の場合を含めることもあります)。本記事および教科書では $\mathrm{dom} ~ f \neq \emptyset$ を仮定します。
+
+なお、真凸関数 (proper convex function)[^proper]は $\mathrm{dom} ~ f \neq \emptyset$ と $f(x) \neq -\infty$ が条件の為、代わりに真凸関数であることを仮定しても殆ど同じ議論になります。
 
 そして、$f$ が **凸関数** であることは、$\mathrm{dom} ~ f$ が凸であり、かつ、次を満たすことと同値です。（教科書 Definition 3.1.1）
 
